@@ -1,8 +1,11 @@
 spring:
   application:
-    name: registry-service
+    name: gateway-service
+  main:
+    web-application-type: reactive
+
 server:
-  port: 8761
+  port: 5005
 eureka:
   client:
     serviceUrl:
@@ -15,3 +18,5 @@ management:
     web:
       exposure:
         include: '*'
+    gateway:
+      enabled: true

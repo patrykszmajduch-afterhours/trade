@@ -1,15 +1,15 @@
 package org.analysis;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
+//@EnableCircuitBreaker
 @EnableDiscoveryClient
 public class ApiGatewayApplication {
 
@@ -20,8 +20,7 @@ public class ApiGatewayApplication {
     @Bean
     public RouteLocator routeLocator(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("kitchen-route", r -> r.path("/kitchen/**").uri("lb://kitchen-service"))
-                .route("tracker-route", r -> r.path("/tracker/**").uri("lb://tracker-service"))
-                .build();
+                .route("traceApi", r -> r.path("/trace/**").uri("lb://trace-service"))
+                .build() ;
     }
 }

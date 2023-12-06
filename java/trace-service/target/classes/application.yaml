@@ -1,8 +1,8 @@
 spring:
   application:
-    name: registry-service
+    name: trace-service
 server:
-  port: 8761
+  port: 5006
 eureka:
   client:
     serviceUrl:

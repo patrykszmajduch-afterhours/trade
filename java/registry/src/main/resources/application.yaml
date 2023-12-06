@@ -1,14 +1,17 @@
 spring:
   application:
-    name: spring-cloud-eureka-client
+    name: registry-service
 server:
   port: 8761
 eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
-    enabled: true
+    fetch-registry: true
   instance:
     preferIpAddress: false
-    appname: registryCheck
-    app-group-name: sys
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
