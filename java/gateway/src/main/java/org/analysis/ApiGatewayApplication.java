@@ -9,7 +9,6 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-//@EnableCircuitBreaker
 @EnableDiscoveryClient
 public class ApiGatewayApplication {
 
@@ -20,7 +19,9 @@ public class ApiGatewayApplication {
     @Bean
     public RouteLocator routeLocator(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("traceApi", r -> r.path("/trace/**").uri("lb://trace-service"))
+                .route("traceApi", r -> r.path("/trace/**")
+                        .filters(f -> f.stripPrefix(1))
+                        .uri("lb://trace-service"))
                 .build() ;
     }
 }
