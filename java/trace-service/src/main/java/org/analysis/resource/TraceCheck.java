@@ -31,6 +31,7 @@ public class TraceCheck {
 
     @GetMapping("/getCoins")
     public List<CoinDto> getSupportedCoins(){
+        //TODO:change that
         return coinCapService.getSupportedCoins();
     }
 
