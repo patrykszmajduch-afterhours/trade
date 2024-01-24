@@ -1,5 +1,6 @@
 package org.analysis.resource;
 
+import org.analysis.dao.CoinDto;
 import org.analysis.dao.CoinValue;
 import org.analysis.sevices.BinanaceService;
 import org.analysis.sevices.CoinCapService;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -26,4 +28,10 @@ public class TraceCheck {
     public List<CoinValue> getData(){
        return coinCapService.fetchData();
     }
+
+    @GetMapping("/getCoins")
+    public List<CoinDto> getSupportedCoins(){
+        return coinCapService.getSupportedCoins();
+    }
+
 }
