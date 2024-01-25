@@ -1,6 +1,6 @@
 package org.analysis.sevices;
 
-import org.analysis.dao.CoinValue;
+import org.analysis.dto.CoinValue;
 
 import java.util.List;
 

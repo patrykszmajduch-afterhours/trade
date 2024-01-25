@@ -1,8 +1,8 @@
 package org.analysis.resource;
 
-import org.analysis.dao.CoinDto;
-import org.analysis.dao.CoinValue;
-import org.analysis.dao.ExchangeRate;
+import org.analysis.dto.CoinDto;
+import org.analysis.dto.CoinValue;
+import org.analysis.dto.ExchangeRate;
 import org.analysis.sevices.BinanaceService;
 import org.analysis.sevices.CoinCapService;
 import org.springframework.beans.factory.annotation.Autowired;

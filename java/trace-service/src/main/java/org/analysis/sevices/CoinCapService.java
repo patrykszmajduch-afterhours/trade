@@ -1,12 +1,9 @@
 package org.analysis.sevices;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
-import lombok.Data;
-import org.analysis.dao.CoinDto;
-import org.analysis.dao.CoinValue;
-import org.analysis.dao.ExchangeRate;
-import org.analysis.dao.ResponseWrapper;
+import org.analysis.dto.CoinDto;
+import org.analysis.dto.CoinValue;
+import org.analysis.dto.ExchangeRate;
+import org.analysis.dto.ResponseWrapper;
 import org.analysis.dto.ExchangeRateWrapper;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.List;
 
 @Service

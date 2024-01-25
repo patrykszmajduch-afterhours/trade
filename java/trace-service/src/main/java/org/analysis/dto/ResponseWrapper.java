@@ -1,4 +1,4 @@
-package org.analysis.dao;
+package org.analysis.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;
