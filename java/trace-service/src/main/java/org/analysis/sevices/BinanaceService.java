@@ -1,6 +1,6 @@
 package org.analysis.sevices;
 
-import org.analysis.dto.CoinValue;
+import org.analysis.wrapper.dto.CoinValue;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

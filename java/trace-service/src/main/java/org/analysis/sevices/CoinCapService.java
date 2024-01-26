@@ -1,11 +1,10 @@
 package org.analysis.sevices;
 
-import org.analysis.dto.CoinDto;
-import org.analysis.dto.CoinValue;
-import org.analysis.dto.ExchangeRate;
-import org.analysis.dto.ResponseWrapper;
-import org.analysis.dto.ExchangeRateWrapper;
-import org.springframework.cache.annotation.Cacheable;
+import org.analysis.wrapper.*;
+import org.analysis.wrapper.dto.CoinDto;
+import org.analysis.wrapper.dto.CoinValue;
+import org.analysis.wrapper.dto.ExchangeRate;
+import org.analysis.wrapper.dto.Market;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -31,7 +30,13 @@ public class CoinCapService implements IService {
         return response.getBody().getExchangeRate();
     }
 
-    @Cacheable("COINS") //TODO: change that to call for supported crypto currency
+    public List<Market> getMarketPrices(String crypto){
+        ResponseEntity<MarketWrapper> response
+                = template.getForEntity(URL +"assets/"+ crypto+"/markets", MarketWrapper.class);
+        return response.getBody().getMarkets();
+    }
+
+//    @Cacheable("COINS") //TODO: change that to call for supported crypto currency
     public List<CoinDto> getSupportedCoins(){
         return List.of(new CoinDto( new BigDecimal(36001),"BIC","bitcoin",1l),
                 new CoinDto( new BigDecimal(10023),"ETH","ETHERUM",2l),

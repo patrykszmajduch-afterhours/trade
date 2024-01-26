@@ -1,8 +1,9 @@
 package org.analysis.resource;
 
-import org.analysis.dto.CoinDto;
-import org.analysis.dto.CoinValue;
-import org.analysis.dto.ExchangeRate;
+import org.analysis.wrapper.dto.CoinDto;
+import org.analysis.wrapper.dto.CoinValue;
+import org.analysis.wrapper.dto.ExchangeRate;
+import org.analysis.wrapper.dto.Market;
 import org.analysis.sevices.BinanaceService;
 import org.analysis.sevices.CoinCapService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,16 +26,20 @@ public class TraceCheck {
 
     @Autowired
     BinanaceService binanaceService;
-    @GetMapping("/fetch")
+    @GetMapping("fetch")
     public List<CoinValue> getData() {
         return coinCapService.fetchData();
     }
-    @GetMapping("/exchange/{id}")
+    @GetMapping("exchange/{id}")
     public ExchangeRate getExchangeRate(@PathVariable("id") String id){
         return coinCapService.getExchangeRate(id);
     }
 
-    @GetMapping("/getCoins")
+    @GetMapping("market/{crypto}")
+    public List<Market> getMarketPrice(@PathVariable("crypto") String crypto){
+        return coinCapService.getMarketPrices(crypto);
+    }
+    @GetMapping("getCoins")
     public List<CoinDto> getSupportedCoins(){
         return coinCapService.getSupportedCoins();
     }
