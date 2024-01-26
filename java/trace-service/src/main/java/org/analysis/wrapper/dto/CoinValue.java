@@ -1,4 +1,4 @@
-package org.analysis.dao;
+package org.analysis.wrapper.dto;
 
 import lombok.Data;
 

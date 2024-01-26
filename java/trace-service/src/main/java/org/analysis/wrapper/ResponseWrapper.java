@@ -1,7 +1,8 @@
-package org.analysis.dao;
+package org.analysis.wrapper;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;
+import org.analysis.wrapper.dto.CoinValue;
 
 import java.util.List;
 
